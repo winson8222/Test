@@ -1,0 +1,28 @@
+class SARS_CoV_2 extends Virus {
+	private String name;
+	private double probabilityOfMutating;
+
+	public SARS_CoV_2(double probabilityOfMutating) {
+		this.name = "SARS-CoV-2";
+		this.probabilityOfMutating = probabilityOfMutating;
+	}
+
+
+	public Virus spread(double random) {
+		if (random <= probabilityOfMutating) {
+			return new BetaCoronavirus();
+		} else {
+			return new SARS_CoV_2(0.9 * this.probabilityOfMutating);
+		}
+	}
+
+	public boolean test(String name) {
+		return this.name == name;
+	}
+
+	@Override
+	public String toString() {
+		return this.name + " with " + probabilityOfMutating.toString() + " probability of mutating";
+	}
+		
+}

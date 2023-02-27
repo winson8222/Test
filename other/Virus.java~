@@ -1,0 +1,16 @@
+abstract class Virus {
+
+	private String name;
+	private double probabilityOfMutating;
+	public Virus(String name, double probabilityOfMutating) {
+		this.name = name;
+		this.probabilityOfMutating = probabilityOfMutating;
+	}
+
+	public abstract Virus spread(double random);
+	public abstract boolean test(String name);
+}
+
+
+
+	
